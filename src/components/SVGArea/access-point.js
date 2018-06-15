@@ -1,16 +1,22 @@
 import React from 'react';
 import { select } from 'd3';
 
-const AccessPoint = (props) => {
-    drawAccessPoint(props)
-    return <React.Fragment/>
+class AccessPoint extends React.PureComponent {
+    
+    componentDidMount() {
+        drawAccessPoint(this.props)
+    }
+    
+    render() {
+        return <React.Fragment/>
+    }
 }
 
 export default AccessPoint;
 
 //////////////////////////////////
 
-function drawAccessPoint({ svg, xScale, yScale }) {
+function drawAccessPoint({ svg, xScale, yScale, frequency, gain }) {
     const groupElement = select(svg).append('g');
 
     const cx = getMiddleScalePoint(xScale);

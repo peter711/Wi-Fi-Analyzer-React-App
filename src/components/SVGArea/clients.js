@@ -3,10 +3,17 @@ import { select } from "d3";
 
 import generateMockClients from "../../mock/clients";
 
-const Clients = (props) => {
-  drawClients(props);
-  return <React.Fragment />;
-};
+class Clients extends React.PureComponent {
+
+  componentDidMount() {
+    drawClients(this.props);
+  }
+
+  render() {
+    return <React.Fragment />
+  }
+
+}
 
 export default Clients;
 

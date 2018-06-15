@@ -24,7 +24,7 @@ class CoordsPane extends React.Component {
           <CoordsPaneWrapper>
             <SVGArea>
               <Clients/>
-              <AccessPoint/>
+              <AccessPoint frequency={context.radio} gain={context.txPower}/>
             </SVGArea>
             {/* {context.txPower} {context.radio} */}
           </CoordsPaneWrapper>

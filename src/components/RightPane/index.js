@@ -74,13 +74,13 @@ class RightPane extends React.Component {
             <Select
               options={txPowerOptions}
               label={"TX Power"}
-              currentValue={context.txPower}
+              initialValue={context.txPower}
               onChange={value => this.onTxSelectChanged(value)}
             />
             <Radio
               options={radioOptions}
               label={"Radio"}
-              currentValue={context.radio}
+              initialValue={context.radio}
               onChange={value => this.onRadioChanged(value)}
             />
             <Separator />

@@ -71,28 +71,49 @@ const RadioInputWrapper = styled.div`
   }
 `;
 
-const Radio = ({ label, options, currentValue, onChange }) => (
-  <RadioWrapper>
-    <label>{label}</label>
-    {renderRadios(options, currentValue)}
-  </RadioWrapper>
-);
+let currentRadioValue;
+
+class Radio extends React.PureComponent {
+
+  componentWillMount() {
+    currentRadioValue = this.props.initialValue;
+  }
+
+  componentDidMount() {
+    currentRadioValue = null;
+  }
+
+  render() {
+    const { label, options, onChange } = this.props;
+    return (
+      <RadioWrapper>
+        <label>{label}</label>
+        {renderRadios(options, currentRadioValue, onChange)}
+      </RadioWrapper>
+    );
+  }
+}
 
 export default Radio;
 
 /////////////////////////////////////////////////////////////
 
 
-function renderRadios(options, currentValue) {
+function renderRadios(options, currentValue, onChange) {
   return (
     options.map((option, index) => (
-      renderRadio(option, index, currentValue)
+      renderRadio(option, index, currentValue, onChange)
     ))
   );
 }
 
-function renderRadio({ text, value }, index, currentValue) {
-  const props = { checked: value === currentValue };
+function renderRadio({ text, value }, index, currentValue, onChange) {
+  let props = undefined;
+  
+  if (currentRadioValue !== null) {
+    props = { checked: value === currentRadioValue };
+  }
+
   return (
     <RadioInputWrapper key={index}>
       <label>
@@ -101,7 +122,9 @@ function renderRadio({ text, value }, index, currentValue) {
           type="radio"
           name="radioInput"
           {...props}
-          onChange={(event) => onChange(event.target.value)}
+          onChange={(event) => {
+            onChange(event.target.value)
+          }}
         />
         <span className="checkmark" />
       </label>
