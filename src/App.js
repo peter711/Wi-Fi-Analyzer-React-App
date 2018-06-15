@@ -7,8 +7,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      txPower: "-16dBm",
-      radio: "5",
+      txPower: 4,
+      radio: 5,
       updateAccessPoint: ({ txPower, radio }) =>
         this.setState({ txPower, radio })
     };

@@ -121,9 +121,10 @@ function renderRadio({ text, value }, index, currentValue, onChange) {
         <input
           type="radio"
           name="radioInput"
+          value={value}
           {...props}
           onChange={(event) => {
-            onChange(event.target.value)
+            onChange(event.target.value);
           }}
         />
         <span className="checkmark" />

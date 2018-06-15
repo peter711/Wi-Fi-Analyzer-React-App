@@ -22,14 +22,14 @@ const ButtonsWrapper = styled.div`
 `;
 
 const txPowerOptions = [
-  { text: "High 4dBm", value: "4dBm" },
-  { text: "Medium -6dBm", value: "-6dBm" },
-  { text: "Low -16dBm", value: "-16dBm" }
+  { text: "High 4dBm", value: 4 },
+  { text: "Medium -6dBm", value: -6 },
+  { text: "Low -16dBm", value: -16 }
 ];
 
 const radioOptions = [
-  { text: "2.4 GHz", value: "2.4" },
-  { text: "5 GHz", value: "5" }
+  { text: "2.4 GHz", value: 2.4 },
+  { text: "5 GHz", value: 5 }
 ];
 
 let prevState = undefined;
@@ -44,11 +44,11 @@ class RightPane extends React.Component {
   }
 
   onTxSelectChanged(value) {
-    this.setState({ txPower: value });
+    this.setState({ txPower: Number(value) });
   }
 
   onRadioChanged(value) {
-    this.setState({ radio: value });
+    this.setState({ radio: Number(value) });
   }
 
   onSaveClick({ txPower, radio, updateAccessPoint }) {
