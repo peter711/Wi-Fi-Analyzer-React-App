@@ -5,6 +5,7 @@ import { Consumer } from "../../context";
 
 import SVGArea from "../SVGArea";
 import Clients from "../SVGArea/clients";
+import AccessPoint from "../SVGArea/access-point";
 
 const CoordsPaneWrapper = styled.div`
   height: 100%;
@@ -23,6 +24,7 @@ class CoordsPane extends React.Component {
           <CoordsPaneWrapper>
             <SVGArea>
               <Clients/>
+              <AccessPoint/>
             </SVGArea>
             {/* {context.txPower} {context.radio} */}
           </CoordsPaneWrapper>

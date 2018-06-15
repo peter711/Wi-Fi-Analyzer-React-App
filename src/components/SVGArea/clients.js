@@ -3,8 +3,8 @@ import { select } from "d3";
 
 import generateMockClients from "../../mock/clients";
 
-const Clients = ({ svg }) => {
-  drawClients(svg);
+const Clients = (props) => {
+  drawClients(props);
   return <React.Fragment />;
 };
 
@@ -12,18 +12,18 @@ export default Clients;
 
 //////////////////////////////////////////////////////////////
 
-function drawClients(svg, clients = []) {
+function drawClients({ svg, xScale, yScale }, clients = []) {
   if (clients.length === 0) {
-    clients = generateMockClients(svg.clientWidth, svg.clientHeight);
+    clients = generateMockClients(2000, 2000);
   }
-  clients.forEach(client => drawCircle(client, svg));
+  clients.forEach(client => drawCircle(client, { xScale, yScale }, svg));
 }
 
-function drawCircle({ cx, cy }, svg) {
+function drawCircle({ x, y }, { xScale, yScale }, svg) {
   select(svg)
     .append("circle")
-    .attr("cx", cx)
-    .attr("cy", cy)
-    .attr("r", 10)
+    .attr("cx", xScale(x))
+    .attr("cy", yScale(y))
+    .attr("r", 8)
     .attr("fill", "red");
 }
