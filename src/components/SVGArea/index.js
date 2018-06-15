@@ -1,8 +1,6 @@
 import React from "React";
 import * as d3Commons from './d3-commons';
 
-const MAX_DISTANCE_IN_M = 2000;
-
 class SVGArea extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -11,8 +9,8 @@ class SVGArea extends React.PureComponent {
     };
   }
 
-  componentWillUpdate(prevProps, nextState) {
-    this._initScales(nextState);
+  componentWillUpdate(nextProps, nextState) {
+    this._initScales(nextState, nextProps);
   }
 
   renderChilds() {
@@ -43,11 +41,11 @@ class SVGArea extends React.PureComponent {
     );
   }
 
-  _initScales({ node, xScale, yScale }) {
+  _initScales({ node, xScale, yScale }, { distance }) {
     if (node && !xScale && !yScale) {
       this.setState({
-        yScale: d3Commons.createScale(MAX_DISTANCE_IN_M, node.clientHeight),
-        xScale: d3Commons.createScale(MAX_DISTANCE_IN_M, node.clientWidth)
+        yScale: d3Commons.createScale(distance, node.clientHeight),
+        xScale: d3Commons.createScale(distance, node.clientWidth)
       });
     }
   }

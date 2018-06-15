@@ -1,8 +1,6 @@
 import React from "react";
 import { select } from "d3";
 
-import generateMockClients from "../../mock/clients";
-
 class Clients extends React.PureComponent {
 
   componentDidMount() {
@@ -19,10 +17,7 @@ export default Clients;
 
 //////////////////////////////////////////////////////////////
 
-function drawClients({ svg, xScale, yScale }, clients = []) {
-  if (clients.length === 0) {
-    clients = generateMockClients(2000, 2000);
-  }
+function drawClients({ svg, xScale, yScale, clients }) {
   clients.forEach(client => drawCircle(client, { xScale, yScale }, svg));
 }
 
