@@ -1,9 +1,24 @@
 import React from 'react';
 import Layout from './layout';
 
+import { Provider } from './context';
+
 class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            txPower: 'contextTxPower',
+            radio: ''
+        };
+    }
+
     render() {
-        return <Layout/>;
+        return (
+            <Provider value={this.state}>
+                <Layout/>
+            </Provider>
+        )
     }
 }
 

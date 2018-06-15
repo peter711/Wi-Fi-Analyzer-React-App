@@ -20,13 +20,13 @@ const SelectWrapper = styled.div`
     }
 `;
 
-const Select = ({ options, label }) => (
+const Select = ({ options, label, onChange }) => (
     <SelectWrapper>
         <label>
             {label}
         </label>
-        <select>
-            { options.map(({ value, text }) => <option value={value}>{text}</option>) }
+        <select onChange={e => onChange(e.target.value) }>
+            { options.map(({ value, text }, index) => <option key={index} value={value}>{text}</option>) }
         </select>
     </SelectWrapper>
 );

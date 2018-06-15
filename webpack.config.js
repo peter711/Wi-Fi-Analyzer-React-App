@@ -19,9 +19,9 @@ const config = {
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
-            { 
-                test: /\.ttf$/, 
-                loader: 'file-loader' 
+            {
+                test: /\.ttf$/,
+                loader: 'file-loader'
             },
         ]
     },
