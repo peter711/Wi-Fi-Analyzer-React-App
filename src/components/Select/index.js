@@ -21,15 +21,32 @@ const SelectWrapper = styled.div`
     }
 `;
 
-const Select = ({ options, label, onChange }) => (
+const Select = ({ options, label, currentValue, onChange }) => (
     <SelectWrapper>
         <label>
             {label}
         </label>
         <select onChange={e => onChange(e.target.value) }>
-            { options.map(({ value, text }, index) => <option key={index} value={value}>{text}</option>) }
+            { renderOptions(options, currentValue) }
         </select>
     </SelectWrapper>
 );
 
+
 export default Select;
+
+/////////////////////////////////////////////////
+
+
+function renderOptions(options, currentValue) {
+    return (
+        options.map((option, index) => renderOption(option, index, currentValue))
+    );
+}
+
+function renderOption({ value, text }, index, currentValue) {
+    const props = { selected: currentValue === value};
+    return (
+        <option key={index} value={value} {...props}>{text}</option>
+    );
+}

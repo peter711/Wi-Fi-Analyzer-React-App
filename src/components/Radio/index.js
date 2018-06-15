@@ -71,24 +71,40 @@ const RadioInputWrapper = styled.div`
   }
 `;
 
-const Radio = ({ label, options, onChange }) => (
+const Radio = ({ label, options, currentValue, onChange }) => (
   <RadioWrapper>
     <label>{label}</label>
-    {options.map(({ text, value }, index) => (
-      <RadioInputWrapper key={index}>
-        <label>
-          {text}
-          <input
-            type="radio"
-            name="radioInput"
-            value={value}
-            onChange={(event) => onChange(event.target.value)}
-          />
-          <span className="checkmark" />
-        </label>
-      </RadioInputWrapper>
-    ))}
+    {renderRadios(options, currentValue)}
   </RadioWrapper>
 );
 
 export default Radio;
+
+/////////////////////////////////////////////////////////////
+
+
+function renderRadios(options, currentValue) {
+  return (
+    options.map((option, index) => (
+      renderRadio(option, index, currentValue)
+    ))
+  );
+}
+
+function renderRadio({ text, value }, index, currentValue) {
+  const props = { checked: value === currentValue };
+  return (
+    <RadioInputWrapper key={index}>
+      <label>
+        {text}
+        <input
+          type="radio"
+          name="radioInput"
+          {...props}
+          onChange={(event) => onChange(event.target.value)}
+        />
+        <span className="checkmark" />
+      </label>
+    </RadioInputWrapper>
+  );
+}
