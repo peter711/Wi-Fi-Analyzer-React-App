@@ -6,12 +6,19 @@ import { Consumer } from "../../context";
 import Select from "../Select";
 import Radio from "../Radio";
 import Separator from '../Separator';
+import Button from '../Button';
 
 const RightPaneWrapper = styled.div`
   width: 280px;
   background-color: #0c0f12;
   color: white;
   padding: 1.5em;
+`;
+
+const ButtonsWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 `;
 
 const txPowerOptions = [
@@ -42,6 +49,14 @@ class RightPane extends React.Component {
     this.setState({ radio: value });
   }
 
+  onSaveClick() {
+
+  }
+
+  onCancelClick() {
+
+  }
+
   render() {
     return (
       <Consumer>
@@ -58,6 +73,10 @@ class RightPane extends React.Component {
               onChange={value => this.onRadioChanged(value)}
             />
             <Separator/>
+            <ButtonsWrapper>
+                <Button className="primary" text={'Save'} onClick={this.onSaveClick}/>
+                <Button text={'Cancel'} onClick={this.onCancelClick}/>
+            </ButtonsWrapper>
           </RightPaneWrapper>
         )}
       </Consumer>
