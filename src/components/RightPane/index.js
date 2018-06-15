@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Consumer } from "../../context";
 
 import Select from "../Select";
+import Radio from "../Radio";
 
 const RightPaneWrapper = styled.div`
   width: 280px;
@@ -18,17 +19,28 @@ const txPowerOptions = [
   { text: "Low -16dBm", value: "-16dBm" }
 ];
 
+const radioOptions = [
+  { text: "2.4 GHz", value: "2.4" },
+  { text: "5 GHz", value: "5" }
+];
+
 class RightPane extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      txPower: txPowerOptions[0].value
+      txPower: txPowerOptions[0].value,
+      radio: radioOptions[0].value
     };
   }
 
   onTxSelectChanged(value) {
-    this.setState({ txPower: value, radio: "" });
+    this.setState({ txPower: value });
   }
+
+  onRadioChanged(value) {
+    this.setState({ radio: value });
+  }
+
   render() {
     return (
       <Consumer>
@@ -38,6 +50,11 @@ class RightPane extends React.Component {
               options={txPowerOptions}
               label={"TX Power"}
               onChange={value => this.onTxSelectChanged(value)}
+            />
+            <Radio
+              options={radioOptions}
+              label={"Radio"}
+              onChange={value => this.onRadioChanged(value)}
             />
           </RightPaneWrapper>
         )}

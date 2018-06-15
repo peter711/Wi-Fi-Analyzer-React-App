@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const SelectWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
 
     label {
         margin-bottom: 10px;
