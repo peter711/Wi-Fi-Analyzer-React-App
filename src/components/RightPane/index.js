@@ -5,8 +5,8 @@ import { Consumer } from "../../context";
 
 import Select from "../Select";
 import Radio from "../Radio";
-import Separator from '../Separator';
-import Button from '../Button';
+import Separator from "../Separator";
+import Button from "../Button";
 
 const RightPaneWrapper = styled.div`
   width: 280px;
@@ -16,9 +16,9 @@ const RightPaneWrapper = styled.div`
 `;
 
 const ButtonsWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;
 
 const txPowerOptions = [
@@ -31,6 +31,8 @@ const radioOptions = [
   { text: "2.4 GHz", value: "2.4" },
   { text: "5 GHz", value: "5" }
 ];
+
+let prevState = undefined;
 
 class RightPane extends React.Component {
   constructor(props) {
@@ -49,12 +51,19 @@ class RightPane extends React.Component {
     this.setState({ radio: value });
   }
 
-  onSaveClick() {
+  onSaveClick({ txPower, radio, updateAccessPoint }) {
+    prevState = {
+        txPower,
+        radio
+    };
 
+    updateAccessPoint(this.state);
   }
 
-  onCancelClick() {
-
+  onCancelClick({ updateAccessPoint }) {
+    if (prevState) {
+      updateAccessPoint(prevState);
+    }
   }
 
   render() {
@@ -72,10 +81,14 @@ class RightPane extends React.Component {
               label={"Radio"}
               onChange={value => this.onRadioChanged(value)}
             />
-            <Separator/>
+            <Separator />
             <ButtonsWrapper>
-                <Button className="primary" text={'Save'} onClick={this.onSaveClick}/>
-                <Button text={'Cancel'} onClick={this.onCancelClick}/>
+              <Button
+                className="primary"
+                text={"Save"}
+                onClick={() => this.onSaveClick(context)}
+              />
+              <Button text={"Cancel"} onClick={() => this.onCancelClick(context)} />
             </ButtonsWrapper>
           </RightPaneWrapper>
         )}

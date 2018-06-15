@@ -1,25 +1,26 @@
-import React from 'react';
-import Layout from './layout';
+import React from "react";
+import Layout from "./layout";
 
-import { Provider } from './context';
+import { Provider } from "./context";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      txPower: "contextTxPower",
+      radio: "contextTxRadio",
+      updateAccessPoint: ({ txPower, radio }) =>
+        this.setState({ txPower, radio })
+    };
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            txPower: 'contextTxPower',
-            radio: ''
-        };
-    }
-
-    render() {
-        return (
-            <Provider value={this.state}>
-                <Layout/>
-            </Provider>
-        )
-    }
+  render() {
+    return (
+      <Provider value={this.state}>
+        <Layout />
+      </Provider>
+    );
+  }
 }
 
 export default App;
