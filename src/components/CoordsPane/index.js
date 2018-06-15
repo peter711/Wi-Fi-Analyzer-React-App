@@ -1,25 +1,35 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { Consumer } from '../../context';
+import { Consumer } from "../../context";
+
+import SVGArea from "../SVGArea";
+import Clients from "../SVGArea/clients";
 
 const CoordsPaneWrapper = styled.div`
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 `;
 
+class CoordsPane extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-const CoordsPane = () => {
+  render() {
     return (
-        <Consumer>
-            {context => (
-                <CoordsPaneWrapper>
-                    {context.txPower} {context.radio}
-                </CoordsPaneWrapper>
-            )
-            }
-        </Consumer>
-    )
+      <Consumer>
+        {context => (
+          <CoordsPaneWrapper>
+            <SVGArea>
+              <Clients/>
+            </SVGArea>
+            {/* {context.txPower} {context.radio} */}
+          </CoordsPaneWrapper>
+        )}
+      </Consumer>
+    );
+  }
 }
 
 export default CoordsPane;
