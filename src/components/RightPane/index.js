@@ -5,6 +5,7 @@ import { Consumer } from "../../context";
 
 import Select from "../Select";
 import Radio from "../Radio";
+import Separator from '../Separator';
 
 const RightPaneWrapper = styled.div`
   width: 280px;
@@ -56,6 +57,7 @@ class RightPane extends React.Component {
               label={"Radio"}
               onChange={value => this.onRadioChanged(value)}
             />
+            <Separator/>
           </RightPaneWrapper>
         )}
       </Consumer>
