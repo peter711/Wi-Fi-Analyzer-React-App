@@ -21,18 +21,7 @@ const SelectWrapper = styled.div`
     }
 `;
 
-let currentSelectValue;
-
 class Select extends React.PureComponent {
-
-    componentWillMount() {
-        currentSelectValue = this.props.initialValue;
-    }
-
-    componentDidMount() {
-        currentSelectValue = null;
-    }
-
     render() {
         const { options, label, onChange } = this.props;
         return (
@@ -40,8 +29,12 @@ class Select extends React.PureComponent {
                 <label>
                     {label}
                 </label>
-                <select onChange={e => onChange(e.target.value)} value={currentSelectValue}>
-                    {renderOptions(options, currentSelectValue)}
+                <select onChange={e => {
+                    const value = e.target.value;
+                    onChange(value);
+                }
+                } value={this.props.value}>
+                    {renderOptions(options)}
                 </select>
             </SelectWrapper>
         );
@@ -53,13 +46,13 @@ export default Select;
 /////////////////////////////////////////////////
 
 
-function renderOptions(options, currentValue) {
+function renderOptions(options) {
     return (
-        options.map((option, index) => renderOption(option, index, currentValue))
+        options.map((option, index) => renderOption(option, index))
     );
 }
 
-function renderOption({ value, text }, index, currentValue) {
+function renderOption({ value, text }, index) {
     return (
         <option key={index} value={value}>{text}</option>
     );

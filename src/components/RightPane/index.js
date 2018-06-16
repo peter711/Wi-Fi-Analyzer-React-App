@@ -38,9 +38,17 @@ class RightPane extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      txPower: txPowerOptions[0].value,
-      radio: radioOptions[0].value
+      txPower: undefined,
+      radio: undefined
     };
+  }
+
+  componentDidMount() {
+    const { txPower, radio } = this.props.context;
+    this.setState({
+      txPower, 
+      radio
+    });
   }
 
   onTxSelectChanged(value) {
@@ -53,8 +61,8 @@ class RightPane extends React.Component {
 
   onSaveClick({ txPower, radio, updateAccessPoint }) {
     prevState = {
-        txPower,
-        radio
+      txPower,
+      radio
     };
 
     updateAccessPoint(this.state);
@@ -68,35 +76,36 @@ class RightPane extends React.Component {
 
   render() {
     return (
-      <Consumer>
-        {context => (
-          <RightPaneWrapper>
-            <Select
-              options={txPowerOptions}
-              label={"TX Power"}
-              initialValue={context.txPower}
-              onChange={value => this.onTxSelectChanged(value)}
-            />
-            <Radio
-              options={radioOptions}
-              label={"Radio"}
-              initialValue={context.radio}
-              onChange={value => this.onRadioChanged(value)}
-            />
-            <Separator />
-            <ButtonsWrapper>
-              <Button
-                className="primary"
-                text={"Save"}
-                onClick={() => this.onSaveClick(context)}
-              />
-              <Button text={"Cancel"} onClick={() => this.onCancelClick(context)} />
-            </ButtonsWrapper>
-          </RightPaneWrapper>
-        )}
-      </Consumer>
+      <RightPaneWrapper>
+        TX: {this.state.txPower} Radio: {this.state.radio}
+        <Select
+          options={txPowerOptions}
+          label={"TX Power"}
+          value={this.state.txPower}
+          onChange={value => this.onTxSelectChanged(value)}
+        />
+        <Radio
+          options={radioOptions}
+          label={"Radio"}
+          initialValue={this.state.radio}
+          onChange={value => this.onRadioChanged(value)}
+        />
+        <Separator />
+        <ButtonsWrapper>
+          <Button
+            className="primary"
+            text={"Save"}
+            onClick={() => this.onSaveClick(this.props.context)}
+          />
+          <Button text={"Cancel"} onClick={() => this.onCancelClick(context)} />
+        </ButtonsWrapper>
+      </RightPaneWrapper>
     );
   }
 }
 
-export default RightPane;
+export default props => (
+  <Consumer>
+    {context => <RightPane context={context}/>}
+  </Consumer>
+)
