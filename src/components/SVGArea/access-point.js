@@ -1,21 +1,25 @@
 import React from 'react';
-import { select } from 'd3';
+import { select, drag, event, transition } from 'd3';
 
 import * as FSPLCommons from '../../commons/FSPL-commons';
 
 const signalRangeDbm = 80;
 const clientGainDbm = 1;
 
+let coverageCircle;
+let innerCircle;
+
 class AccessPoint extends React.Component {
 
     shouldComponentUpdate(nextProps) {
         const { frequency, gain } = nextProps;
-        return this.props.frequency !== frequency 
-        || this.props.gain !== gain;
+        return this.props.frequency !== frequency
+            || this.props.gain !== gain;
     }
 
     componentDidMount() {
-        drawAccessPoint(this.props)
+        drawAccessPoint(this.props);
+        createDragBehaviour(this.props);
     }
 
     componentWillUpdate(nextProps) {
@@ -34,8 +38,6 @@ class AccessPoint extends React.Component {
 export default AccessPoint;
 
 //////////////////////////////////
-
-let coverageCircle;
 
 function drawAccessPoint({ svg, xScale, yScale, frequency, gain, updateAccessPointCoords }) {
     const groupElement = select(svg).append('g');
@@ -64,10 +66,10 @@ function getMiddleScalePoint(scale) {
 }
 
 function appendInnerCircle({ element, cx, cy }) {
-    element.append('circle')
+    innerCircle = element.append('circle')
         .attr('cx', cx)
         .attr('cy', cy)
-        .attr('r', 5)
+        .attr('r', 10)
         .attr('fill', 'grey');
 }
 
@@ -87,7 +89,10 @@ function updateCoverageCircle({ frequency, gain, updateAccessPointCoords }) {
             frequency
         });
 
-        coverageCircle.attr('r', newR);
+        coverageCircle
+            .transition()
+            .duration(500)
+            .attr('r', newR);
 
         updateAccessPointCoords({
             radius: newR,
@@ -95,4 +100,51 @@ function updateCoverageCircle({ frequency, gain, updateAccessPointCoords }) {
             y: Number(coverageCircle.attr('cy'))
         });
     }
-} 
+}
+
+function createDragBehaviour({ updateAccessPointCoords, xScale, yScale }) {
+    if (innerCircle) {
+        innerCircle.call(
+            drag()
+                .on('drag', onDrag.bind(this, updateAccessPointCoords, xScale, yScale))
+        );
+    }
+}
+
+function onDrag(updateAccessPointCoords, xScale, yScale) {
+    if (coordsInRange(event, xScale, yScale)) {
+        const { x, y } = event;
+        const radius = Number(coverageCircle.attr('r'));
+
+        updateElementsPositionOnDrag({
+            cx: x,
+            cy: y
+        });
+
+        updateAccessPointCoords({
+            radius,
+            x,
+            y
+        });
+    }
+}
+
+function coordsInRange({ x, y }, xScale, yScale) {
+    const [minX, maxX] = xScale.range();
+    const [minY, maxY] = yScale.range();
+
+    return x >= minX
+        && x <= maxX
+        && y >= minY
+        && y <= maxY;
+}
+
+function updateElementsPositionOnDrag({ cx, cy }) {
+    innerCircle
+        .attr('cx', cx)
+        .attr('cy', cy);
+
+    coverageCircle
+        .attr('cx', cx)
+        .attr('cy', cy);
+}
