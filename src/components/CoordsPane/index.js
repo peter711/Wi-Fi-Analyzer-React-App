@@ -9,7 +9,7 @@ import AccessPoint from "../SVGArea/access-point";
 
 import generateMockClients from "../../mock/clients";
 
-const MAX_DISTANCE_IN_M = 2000;
+const MAX_DISTANCE_IN_M = 1000;
 
 const CoordsPaneWrapper = styled.div`
   height: 100%;
@@ -22,20 +22,20 @@ class CoordsPane extends React.Component {
   }
 
   render() {
+    const { radio, txPower } = this.props;
     return (
-      <Consumer>
-        {context => (
-          <CoordsPaneWrapper>
-            TX: {context.txPower} Radio: {context.radio}
-            <SVGArea distance={MAX_DISTANCE_IN_M}>
-              <Clients clients={generateMockClients(MAX_DISTANCE_IN_M, MAX_DISTANCE_IN_M)}/>
-              <AccessPoint frequency={context.radio} gain={context.txPower}/>
-            </SVGArea>
-          </CoordsPaneWrapper>
-        )}
-      </Consumer>
+      <CoordsPaneWrapper>
+        <SVGArea distance={MAX_DISTANCE_IN_M}>
+          <Clients clients={generateMockClients(MAX_DISTANCE_IN_M, MAX_DISTANCE_IN_M)} />
+          <AccessPoint frequency={radio} gain={txPower} />
+        </SVGArea>
+      </CoordsPaneWrapper>
     );
   }
 }
 
-export default CoordsPane;
+export default props => (
+  <Consumer>
+    {context => <CoordsPane radio={context.radio} txPower={context.txPower} />}
+  </Consumer>
+);

@@ -45,10 +45,12 @@ class RightPane extends React.Component {
 
   componentDidMount() {
     const { txPower, radio } = this.props.context;
-    this.setState({
+    prevState = {
       txPower, 
       radio
-    });
+    };
+
+    this.setState(prevState);
   }
 
   onTxSelectChanged(value) {
@@ -70,6 +72,7 @@ class RightPane extends React.Component {
 
   onCancelClick({ updateAccessPoint }) {
     if (prevState) {
+      this.setState(prevState);
       updateAccessPoint(prevState);
     }
   }
@@ -77,7 +80,6 @@ class RightPane extends React.Component {
   render() {
     return (
       <RightPaneWrapper>
-        TX: {this.state.txPower} Radio: {this.state.radio}
         <Select
           options={txPowerOptions}
           label={"TX Power"}
@@ -97,7 +99,7 @@ class RightPane extends React.Component {
             text={"Save"}
             onClick={() => this.onSaveClick(this.props.context)}
           />
-          <Button text={"Cancel"} onClick={() => this.onCancelClick(context)} />
+          <Button text={"Cancel"} onClick={() => this.onCancelClick(this.props.context)} />
         </ButtonsWrapper>
       </RightPaneWrapper>
     );

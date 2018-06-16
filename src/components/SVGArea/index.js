@@ -6,11 +6,21 @@ class SVGArea extends React.PureComponent {
     super(props);
     this.state = {
       node: undefined,
+      yScale: undefined,
+      xScale: undefined,
       accessPointX: undefined,
       accessPointY: undefined,
       accessPointRadius: undefined,
       updateAccessPointCoords: this.updateAccessPointCoords
     };
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this._onWindowResize.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onWindowResize.bind(this));
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -73,6 +83,15 @@ class SVGArea extends React.PureComponent {
         xScale: d3Commons.createScale(distance, node.clientWidth)
       });
     }
+  }
+
+  _onWindowResize() {
+    const { node } = this.state;
+    const { distance } = this.props;
+    this.setState({
+      yScale: d3Commons.createScale(distance, node.clientHeight),
+      xScale: d3Commons.createScale(distance, node.clientWidth)
+    });
   }
 
 }

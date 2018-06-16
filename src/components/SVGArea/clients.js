@@ -1,6 +1,7 @@
 import React from "react";
 import { select } from "d3";
 
+import * as d3Commons from './d3-commons';
 import * as FSPLCommons from '../../commons/FSPL-commons';
 
 class Clients extends React.Component {
@@ -10,10 +11,21 @@ class Clients extends React.Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const { accessPointX, accessPointY, accessPointRadius } = nextProps;
+    const { accessPointX, accessPointY, accessPointRadius, yScale, xScale } = nextProps;
+
+    if (this.props.yScale !== yScale || this.props.xScale !== xScale) {
+      onScaleUpdate({
+          yScale: this.props.yScale,
+          xScale: this.props.xScale
+      },{
+          yScale,
+          xScale
+      });
+  }
+
     return this.props.accessPointX !== accessPointX
-    || this.props.accessPointY !== accessPointY
-    || this.props.accessPointRadius !== accessPointRadius;
+      || this.props.accessPointY !== accessPointY
+      || this.props.accessPointRadius !== accessPointRadius;
   }
 
   componentWillUpdate(nextProps) {
@@ -47,11 +59,24 @@ function drawCircle({ x, y }, { xScale, yScale }, svg) {
   circles.push(circle);
 }
 
-function markClientsInRange({ accessPointX, accessPointY, accessPointRadius}) {
+function markClientsInRange({ accessPointX, accessPointY, accessPointRadius }) {
   circles.forEach(circle => {
     const x = Number(circle.attr('cx'));
     const y = Number(circle.attr('cy'));
     const isInRange = FSPLCommons.isClientInRangeOfAccessPoint({ x, y }, { accessPointRadius, accessPointX, accessPointY });
-    circle.attr('fill', isInRange ? 'green' : 'red' );
-  }) 
+    circle.attr('fill', isInRange ? 'green' : 'red');
+  })
+}
+
+function onScaleUpdate(oldScales, newScales) {
+  const xRatio = d3Commons.calculateTransformRangeRation(oldScales.xScale, newScales.xScale);
+  const yRatio = d3Commons.calculateTransformRangeRation(oldScales.yScale, newScales.yScale);
+  
+  circles.forEach(circle => {
+    const x = Number(circle.attr('cx'));
+    const y = Number(circle.attr('cy'));
+
+    circle.attr('cx', xRatio * x);
+    circle.attr('cy', yRatio * y);
+  });
 }

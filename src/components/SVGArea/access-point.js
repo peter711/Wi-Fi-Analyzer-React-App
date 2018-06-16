@@ -1,6 +1,6 @@
 import React from 'react';
 import { select, drag, event, transition } from 'd3';
-
+import * as d3Commons from './d3-commons';
 import * as FSPLCommons from '../../commons/FSPL-commons';
 
 const signalRangeDbm = 80;
@@ -12,7 +12,18 @@ let innerCircle;
 class AccessPoint extends React.Component {
 
     shouldComponentUpdate(nextProps) {
-        const { frequency, gain } = nextProps;
+        const { frequency, gain, yScale, xScale } = nextProps;
+        
+        if (this.props.yScale !== yScale || this.props.xScale !== xScale) {
+            onScaleUpdate({
+                yScale: this.props.yScale,
+                xScale: this.props.xScale
+            },{
+                yScale,
+                xScale
+            });
+        }
+
         return this.props.frequency !== frequency
             || this.props.gain !== gain;
     }
@@ -147,4 +158,22 @@ function updateElementsPositionOnDrag({ cx, cy }) {
     coverageCircle
         .attr('cx', cx)
         .attr('cy', cy);
+}
+
+function onScaleUpdate(oldScales, newScales) {
+    const xRatio = d3Commons.calculateTransformRangeRation(oldScales.xScale, newScales.xScale);
+    const yRatio = d3Commons.calculateTransformRangeRation(oldScales.yScale, newScales.yScale);
+    const innerCircleCX = +innerCircle.attr('cx');
+    const innerCircleCY = +innerCircle.attr('cy');
+
+    innerCircle
+        .attr('cx', xRatio * innerCircleCX)
+        .attr('cy', yRatio * innerCircleCY);
+
+    const coverageCircleCX = +coverageCircle.attr('cx');
+    const coverageCircleCY = +coverageCircle.attr('cy');
+
+    coverageCircle
+        .attr('cx', xRatio * coverageCircleCX)
+        .attr('cy', yRatio * coverageCircleCY);
 }
