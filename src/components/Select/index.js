@@ -23,7 +23,7 @@ const SelectWrapper = styled.div`
 
 class Select extends React.PureComponent {
     render() {
-        const { options, label, onChange } = this.props;
+        const { options, label, onChange, value } = this.props;
         return (
             <SelectWrapper>
                 <label>
@@ -33,7 +33,7 @@ class Select extends React.PureComponent {
                     const value = e.target.value;
                     onChange(value);
                 }
-                } value={this.props.value}>
+                } value={value}>
                     {renderOptions(options)}
                 </select>
             </SelectWrapper>

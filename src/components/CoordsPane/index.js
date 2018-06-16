@@ -26,11 +26,11 @@ class CoordsPane extends React.Component {
       <Consumer>
         {context => (
           <CoordsPaneWrapper>
+            TX: {context.txPower} Radio: {context.radio}
             <SVGArea distance={MAX_DISTANCE_IN_M}>
               <Clients clients={generateMockClients(MAX_DISTANCE_IN_M, MAX_DISTANCE_IN_M)}/>
               <AccessPoint frequency={context.radio} gain={context.txPower}/>
             </SVGArea>
-            {/* {context.txPower} {context.radio} */}
           </CoordsPaneWrapper>
         )}
       </Consumer>

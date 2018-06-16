@@ -87,7 +87,7 @@ class RightPane extends React.Component {
         <Radio
           options={radioOptions}
           label={"Radio"}
-          initialValue={this.state.radio}
+          value={this.state.radio}
           onChange={value => this.onRadioChanged(value)}
         />
         <Separator />
