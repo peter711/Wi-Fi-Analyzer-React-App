@@ -5,7 +5,11 @@ class SVGArea extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      node: undefined
+      node: undefined,
+      accessPointX: undefined,
+      accessPointY: undefined,
+      accessPointRadius: undefined,
+      updateAccessPointCoords: this.updateAccessPointCoords
     };
   }
 
@@ -15,12 +19,25 @@ class SVGArea extends React.PureComponent {
 
   renderChilds() {
     const { children } = this.props;
-    const childrenWithProps = React.Children.map(children, child =>
-      React.cloneElement(child, { 
+
+    const childrenWithProps = React.Children.map(children, child => {
+      const newProps = {
         svg: this.state.node,
         xScale: this.state.xScale,
-        yScale: this.state.yScale
-      })
+        yScale: this.state.yScale,
+        accessPointX: this.state.accessPointX,
+        accessPointY: this.state.accessPointY,
+        accessPointRadius: this.state.accessPointRadius
+      };
+
+      if (child.type.name === 'AccessPoint') {
+        Object.assign(newProps, {
+          updateAccessPointCoords: (params) => this.updateAccessPointCoords(params)
+        });
+      }
+
+      return (React.cloneElement(child, newProps));
+    }
     );
 
     return childrenWithProps;
@@ -29,6 +46,14 @@ class SVGArea extends React.PureComponent {
   svgReady() {
     const { node, yScale, xScale } = this.state;
     return node && yScale && xScale;
+  }
+
+  updateAccessPointCoords({ radius, x, y }) {
+    this.setState({
+      accessPointRadius: radius,
+      accessPointX: x,
+      accessPointY: y
+    });
   }
 
   render() {
@@ -49,7 +74,7 @@ class SVGArea extends React.PureComponent {
       });
     }
   }
-  
+
 }
 
 export default SVGArea;

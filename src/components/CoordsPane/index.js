@@ -16,8 +16,6 @@ const CoordsPaneWrapper = styled.div`
   width: 100%;
 `;
 
-
-
 class CoordsPane extends React.Component {
   constructor(props) {
     super(props);
