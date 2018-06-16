@@ -55,11 +55,11 @@ function drawAccessPoint({ svg, xScale, yScale, frequency, gain, updateAccessPoi
 
     const cx = getMiddleScalePoint(xScale);
     const cy = getMiddleScalePoint(yScale);
-    const r = FSPLCommons.calculateDistanceInMetersForRange(signalRangeDbm, {
+    const r = xScale(FSPLCommons.calculateDistanceInMetersForRange(signalRangeDbm, {
         gainReceiver: clientGainDbm,
         gainTrasmitter: gain,
         frequency
-    });
+    }));
 
     appendCoverageCircle({ element: groupElement, cx, cy, r });
     appendInnerCircle({ element: groupElement, cx, cy });

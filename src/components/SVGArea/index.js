@@ -1,4 +1,4 @@
-import React from "React";
+import React from 'react';
 import * as d3Commons from './d3-commons';
 
 class SVGArea extends React.PureComponent {
