@@ -1,7 +1,8 @@
-const webpack = require('webpack');
+const { HotModuleReplacementPlugin } = require('webpack');
 const { resolve } = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const config = {
     entry: [
@@ -34,10 +35,11 @@ const config = {
         publicPath: '/'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        new HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html'
-        })
+        }),
+        new CleanWebpackPlugin([resolve(__dirname, 'dist')]),
     ],
 };
 

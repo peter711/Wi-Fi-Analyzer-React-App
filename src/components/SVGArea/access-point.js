@@ -81,7 +81,8 @@ function appendInnerCircle({ element, cx, cy }) {
         .attr('cx', cx)
         .attr('cy', cy)
         .attr('r', 10)
-        .attr('fill', 'grey');
+        .attr('fill', 'grey')
+        .attr('style', 'cursor: pointer;')
 }
 
 function appendCoverageCircle({ element, cx, cy, r }) {

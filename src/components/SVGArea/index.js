@@ -11,7 +11,6 @@ class SVGArea extends React.PureComponent {
       accessPointX: undefined,
       accessPointY: undefined,
       accessPointRadius: undefined,
-      updateAccessPointCoords: this.updateAccessPointCoords
     };
   }
 
@@ -37,7 +36,8 @@ class SVGArea extends React.PureComponent {
         yScale: this.state.yScale,
         accessPointX: this.state.accessPointX,
         accessPointY: this.state.accessPointY,
-        accessPointRadius: this.state.accessPointRadius
+        accessPointRadius: this.state.accessPointRadius,
+        updateAccessPointCoords: this.updateAccessPointCoords.bind(this)
       };
 
       if (child.type.name === 'AccessPoint') {

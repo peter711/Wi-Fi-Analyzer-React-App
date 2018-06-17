@@ -12,4 +12,7 @@ ReactDOM.render(
     MOUNT_NODE
 );
 
-module.hot.accept();
+// Webpack Hot Module Replacement API
+if (module.hot) {
+    module.hot.accept();
+}
