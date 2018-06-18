@@ -34,7 +34,7 @@ class Select extends React.PureComponent {
                     onChange(value);
                 }
                 } value={value}>
-                    {renderOptions(options)}
+                    {options && renderOptions(options)}
                 </select>
             </SelectWrapper>
         );
