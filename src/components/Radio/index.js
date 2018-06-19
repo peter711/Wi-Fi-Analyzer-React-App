@@ -3,11 +3,11 @@ import { RadioWrapper, RadioInputWrapper } from './styles';
 
 class Radio extends React.PureComponent {
   render() {
-    const { label } = this.props;
+    const { label, options } = this.props;
     return (
       <RadioWrapper>
         <label>{label}</label>
-        {renderRadios(this.props)}
+        {options && renderRadios(this.props)}
       </RadioWrapper>
     );
   }

@@ -4,14 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack/webpack.dev.config.js --mode development",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "build:dev": "webpack --config ./webpack.config.js --mode development",
     "build:prod": "webpack --config ./webpack.config.js --mode production",
     "test": "jest --coverage",
-    "test:debug": "node --inspect-brk ./node_modules/.bin/jest"
+    "test:watch": "jest --coverage --watch"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./setupTests.js"
+    "setupTestFrameworkScriptFile": "./jestConfig.js",
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "coverageReporters": [
+      "text"
+    ]
   },
   "keywords": [],
   "author": "",

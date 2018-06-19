@@ -1,0 +1,966 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Radio/> should call onChange 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Radio
+    onChange={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "text": "Foo",
+          "value": "foo",
+        },
+        Object {
+          "text": "Bar",
+          "value": "bar",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <label />,
+        Array [
+          <styled.div>
+            <label>
+              Foo
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="foo"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </styled.div>,
+          <styled.div>
+            <label>
+              Bar
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="bar"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </styled.div>,
+        ],
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "class",
+        "props": Object {
+          "children": <label>
+            Foo
+            <input
+              checked={false}
+              name="radioInput"
+              onChange={[Function]}
+              type="radio"
+              value="foo"
+            />
+            <span
+              className="checkmark"
+            />
+          </label>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Foo",
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="foo"
+              />,
+              <span
+                className="checkmark"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Foo",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "checked": false,
+                "name": "radioInput",
+                "onChange": [Function],
+                "type": "radio",
+                "value": "foo",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "checkmark",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "span",
+            },
+          ],
+          "type": "label",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "children": <label>
+            Bar
+            <input
+              checked={false}
+              name="radioInput"
+              onChange={[Function]}
+              type="radio"
+              value="bar"
+            />
+            <span
+              className="checkmark"
+            />
+          </label>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Bar",
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="bar"
+              />,
+              <span
+                className="checkmark"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Bar",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "checked": false,
+                "name": "radioInput",
+                "onChange": [Function],
+                "type": "radio",
+                "value": "bar",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "checkmark",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "span",
+            },
+          ],
+          "type": "label",
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <label />,
+          Array [
+            <styled.div>
+              <label>
+                Foo
+                <input
+                  checked={false}
+                  name="radioInput"
+                  onChange={[Function]}
+                  type="radio"
+                  value="foo"
+                />
+                <span
+                  className="checkmark"
+                />
+              </label>
+            </styled.div>,
+            <styled.div>
+              <label>
+                Bar
+                <input
+                  checked={false}
+                  name="radioInput"
+                  onChange={[Function]}
+                  type="radio"
+                  value="bar"
+                />
+                <span
+                  className="checkmark"
+                />
+              </label>
+            </styled.div>,
+          ],
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "class",
+          "props": Object {
+            "children": <label>
+              Foo
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="foo"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Foo",
+                <input
+                  checked={false}
+                  name="radioInput"
+                  onChange={[Function]}
+                  type="radio"
+                  value="foo"
+                />,
+                <span
+                  className="checkmark"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Foo",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "checked": false,
+                  "name": "radioInput",
+                  "onChange": [Function],
+                  "type": "radio",
+                  "value": "foo",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "checkmark",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "span",
+              },
+            ],
+            "type": "label",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "children": <label>
+              Bar
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="bar"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Bar",
+                <input
+                  checked={false}
+                  name="radioInput"
+                  onChange={[Function]}
+                  type="radio"
+                  value="bar"
+                />,
+                <span
+                  className="checkmark"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Bar",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "checked": false,
+                  "name": "radioInput",
+                  "onChange": [Function],
+                  "type": "radio",
+                  "value": "bar",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "checkmark",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "span",
+              },
+            ],
+            "type": "label",
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<Radio/> should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Radio />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <label />,
+        undefined,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "label",
+      },
+      undefined,
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <label />,
+          undefined,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "label",
+        },
+        undefined,
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<Radio/> should render radio options 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Radio
+    options={
+      Array [
+        Object {
+          "text": "Foo",
+          "value": "foo",
+        },
+        Object {
+          "text": "Bar",
+          "value": "bar",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <label />,
+        Array [
+          <styled.div>
+            <label>
+              Foo
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="foo"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </styled.div>,
+          <styled.div>
+            <label>
+              Bar
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="bar"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </styled.div>,
+        ],
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "class",
+        "props": Object {
+          "children": <label>
+            Foo
+            <input
+              checked={false}
+              name="radioInput"
+              onChange={[Function]}
+              type="radio"
+              value="foo"
+            />
+            <span
+              className="checkmark"
+            />
+          </label>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Foo",
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="foo"
+              />,
+              <span
+                className="checkmark"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Foo",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "checked": false,
+                "name": "radioInput",
+                "onChange": [Function],
+                "type": "radio",
+                "value": "foo",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "checkmark",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "span",
+            },
+          ],
+          "type": "label",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "children": <label>
+            Bar
+            <input
+              checked={false}
+              name="radioInput"
+              onChange={[Function]}
+              type="radio"
+              value="bar"
+            />
+            <span
+              className="checkmark"
+            />
+          </label>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Bar",
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="bar"
+              />,
+              <span
+                className="checkmark"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Bar",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "checked": false,
+                "name": "radioInput",
+                "onChange": [Function],
+                "type": "radio",
+                "value": "bar",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "checkmark",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "span",
+            },
+          ],
+          "type": "label",
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <label />,
+          Array [
+            <styled.div>
+              <label>
+                Foo
+                <input
+                  checked={false}
+                  name="radioInput"
+                  onChange={[Function]}
+                  type="radio"
+                  value="foo"
+                />
+                <span
+                  className="checkmark"
+                />
+              </label>
+            </styled.div>,
+            <styled.div>
+              <label>
+                Bar
+                <input
+                  checked={false}
+                  name="radioInput"
+                  onChange={[Function]}
+                  type="radio"
+                  value="bar"
+                />
+                <span
+                  className="checkmark"
+                />
+              </label>
+            </styled.div>,
+          ],
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "class",
+          "props": Object {
+            "children": <label>
+              Foo
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="foo"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Foo",
+                <input
+                  checked={false}
+                  name="radioInput"
+                  onChange={[Function]}
+                  type="radio"
+                  value="foo"
+                />,
+                <span
+                  className="checkmark"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Foo",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "checked": false,
+                  "name": "radioInput",
+                  "onChange": [Function],
+                  "type": "radio",
+                  "value": "foo",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "checkmark",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "span",
+              },
+            ],
+            "type": "label",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "children": <label>
+              Bar
+              <input
+                checked={false}
+                name="radioInput"
+                onChange={[Function]}
+                type="radio"
+                value="bar"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Bar",
+                <input
+                  checked={false}
+                  name="radioInput"
+                  onChange={[Function]}
+                  type="radio"
+                  value="bar"
+                />,
+                <span
+                  className="checkmark"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Bar",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "checked": false,
+                  "name": "radioInput",
+                  "onChange": [Function],
+                  "type": "radio",
+                  "value": "bar",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "checkmark",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "span",
+              },
+            ],
+            "type": "label",
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
