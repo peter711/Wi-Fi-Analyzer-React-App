@@ -106,7 +106,7 @@ class RightPane extends React.Component {
   }
 }
 
-export default props => (
+export default () => (
   <Consumer>
     {context => <RightPane context={context}/>}
   </Consumer>
