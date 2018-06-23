@@ -17,10 +17,6 @@ const CoordsPaneWrapper = styled.div`
 `;
 
 class CoordsPane extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { radio, txPower } = this.props;
     return (
@@ -34,7 +30,7 @@ class CoordsPane extends React.Component {
   }
 }
 
-export default props => (
+export default () => (
   <Consumer>
     {context => <CoordsPane radio={context.radio} txPower={context.txPower} />}
   </Consumer>
