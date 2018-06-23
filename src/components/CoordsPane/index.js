@@ -7,7 +7,7 @@ import SVGArea from "../SVGArea";
 import Clients from "../SVGArea/clients";
 import AccessPoint from "../SVGArea/access-point";
 
-import generateMockClients from "../../mock/clients";
+import generateMockClients from "../../../mock/clients";
 
 const MAX_DISTANCE_IN_M = 1000;
 
