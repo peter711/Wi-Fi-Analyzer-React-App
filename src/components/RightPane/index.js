@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 import { Consumer } from "../../context";
-
 import Select from "../Select";
 import Radio from "../Radio";
 import Separator from "../Separator";
@@ -46,7 +45,7 @@ class RightPane extends React.Component {
   componentDidMount() {
     const { txPower, radio } = this.props.context;
     prevState = {
-      txPower, 
+      txPower,
       radio
     };
 
@@ -71,6 +70,7 @@ class RightPane extends React.Component {
   }
 
   onCancelClick({ updateAccessPoint }) {
+    debugger;
     if (prevState) {
       this.setState(prevState);
       updateAccessPoint(prevState);
@@ -108,6 +108,6 @@ class RightPane extends React.Component {
 
 export default () => (
   <Consumer>
-    {context => <RightPane context={context}/>}
+    {context => <RightPane context={context} />}
   </Consumer>
-)
+);
