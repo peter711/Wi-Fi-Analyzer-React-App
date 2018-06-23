@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AccessPoint/> should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <AccessPoint
+    frequency={2.4}
+    gain={4}
+    svg={
+      <svg
+        height="300"
+        width="300"
+      >
+        <g>
+          <circle
+            cx="150"
+            cy="150"
+            fill="rgba(68, 137, 244, 0.4)"
+            r="53.01637298881096"
+          />
+          <circle
+            cx="150"
+            cy="150"
+            fill="grey"
+            r="10"
+            style="cursor: pointer;"
+          />
+        </g>
+      </svg>
+    }
+    updateAccessPointCoords={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "radius": 53.01637298881096,
+              "x": 150,
+              "y": 150,
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    xScale={[Function]}
+    yScale={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
