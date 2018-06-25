@@ -37,7 +37,8 @@ class AccessPoint extends React.Component {
         updateCoverageCircle({
             frequency: nextProps.frequency,
             gain: nextProps.gain,
-            updateAccessPointCoords: nextProps.updateAccessPointCoords
+            updateAccessPointCoords: nextProps.updateAccessPointCoords,
+            xScale: nextProps.xScale
         });
     }
 
@@ -93,13 +94,13 @@ function appendCoverageCircle({ element, cx, cy, r }) {
         .attr('fill', 'rgba(68, 137, 244, 0.4)')
 }
 
-function updateCoverageCircle({ frequency, gain, updateAccessPointCoords }) {
+function updateCoverageCircle({ frequency, gain, updateAccessPointCoords, xScale }) {
     if (coverageCircle) {
-        const newR = FSPLCommons.calculateDistanceInMetersForRange(signalRangeDbm, {
+        const newR = xScale(FSPLCommons.calculateDistanceInMetersForRange(signalRangeDbm, {
             gainReceiver: clientGainDbm,
             gainTrasmitter: gain,
             frequency
-        });
+        }));
 
         coverageCircle
             .transition()
